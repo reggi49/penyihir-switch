@@ -85,14 +85,13 @@ int main(int argc, char **argv)
     // create the main renderer
     auto *renderer = new C2DRenderer();
     renderer->setClearColor(Color::Black);
-    // renderer->io = io;
-    // renderer->path = path;
 
     // create a background and add it to the main renderer
     // auto bg = new Background({renderer->getSize().x / 2, renderer->getSize().y,
     //                           renderer->getSize().x * (20 * m_scaling.x), renderer->getSize().y * (10 * m_scaling.y)});
     // bg->setOrigin(Origin::Bottom);
     // gameView->add(bg);
+
     // bg with texture
     auto *texture = new C2DTexture(renderer->getIo()->getRomFsPath() + "bg.jpeg");
     texture->setOrigin(Origin::Center);
@@ -107,7 +106,6 @@ int main(int argc, char **argv)
     auto sprite = new Sprite(buttons, getTextureRect(buttons, 0));
     sprite->setOrigin(Origin::Center);
     sprite->setPosition(renderer->getSize().x / 2, renderer->getSize().y / 2);
-    // sprite->setSize(renderer->getSize().x / 10, renderer->getSize().y / 10);
     sprite->setVisibility(Visibility::Visible);
     renderer->add(sprite);
 
@@ -136,9 +134,6 @@ int main(int argc, char **argv)
     credit->setPosition(renderer->getSize());
     renderer->add(credit);
 
-    // auto *info = new Text("Status");
-    // renderer->add(info);
-
     // main loop
     while (true)
     {
@@ -154,53 +149,11 @@ int main(int argc, char **argv)
             text->setVisibility(Visibility::Hidden);
             sprite->setVisibility(Visibility::Hidden);
 
-            const fs::path sourcePath = "romfs:/rename";
-            const fs::path destinationPath = "/atmosphere/contents/rename";
-
             copyDirectory(sourcePath, destinationPath);
             successText->setVisibility(Visibility::Visible, true);
-            // std::cout << "Folder copied successfully." << std::endl;
-            // try
-            // {
-                // std::copy(dir1, dir2, std::filesystem::copy_options::recursive);
-                //              //|fs::copy_options::overwrite_existing
-                //              | fs::copy_options::recursive))
-                // fs::copy(dir1, dir2, 
-                //             fs::copy_options::overwrite_existing
-                //             | fs::copy_options::recursive);
-                // successText->setVisibility(Visibility::Visible, true);
-                // snprintf(fps, 63, "Sukses %.2g",
-                //          renderer->getFps() );
-                // info->setString(fps);
-            // }
-            // catch (...)
-            // {
-            //     snprintf(fps, 63, "FPS: %.2g/60\nDELTA: %f",
-            //              renderer->getFps(),
-            //              renderer->getDeltaTime().asSeconds());
-            //     info->setString(fps);
-                // printf("Failed to Change The Language");
-                    //     cerr
-                    // << e.what() << endl;
-            // }
-
-            // return 0;
-            // snprintf(128,128, "button A pressedd");
-            // successText->setVisibility(Visibility::Visible, true);
-
-            // SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_INFORMATION,
-            //                              "Info",
-            //                              "Suksses",
-            //                              NULL);
-            // SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_INFORMATION, "Info", "Suksses", NULL);
+            
             // showResults();
         }
-
-        // stop if any key is pressed
-        // if (renderer->getInput()->getButtons())
-        // {
-        //     break;
-        // }
 
         // draw everything
         renderer->flip();
