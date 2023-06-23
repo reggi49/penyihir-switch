@@ -2,7 +2,6 @@
 ### Build your project (on linux/mac for nintendo switch)
 - Build !
   ```
-  cd libcross2d-template
   mkdir cmake-build-release && cd cmake-build-release
   export DEVKITPRO=/opt/devkitpro
   cmake -G "Unix Makefiles" -DPLATFORM_SWITCH=ON -DCMAKE_BUILD_TYPE=Release ../
