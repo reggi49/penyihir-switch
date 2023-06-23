@@ -8,10 +8,10 @@ add_subdirectory(libcross2d)
 ########################
 # PROJECT SETUP
 ########################
-project(app)
+project(penyihir)
 set(VERSION_MAJOR "1")
 set(VERSION_MINOR "0")
-set(PROJECT_AUTHOR "libcross2d")
+set(PROJECT_AUTHOR "reggi49")
 
 ########################
 # SOURCES SETUP

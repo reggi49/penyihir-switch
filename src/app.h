@@ -20,6 +20,7 @@ private:
     void onUpdate() override;
 
     c2d::RectangleShape *rectangle;
+    // c2d::Texture *texture;
 };
 
 #endif //C2D_APP_H
