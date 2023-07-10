@@ -32,17 +32,6 @@ IntRect getTextureRect(Texture *texture, int direction)
     return rect;
 }
 
-// void showResults()
-// {
-//     auto *renderer = new C2DRenderer();
-//     renderer->setClearColor(Color::Transparent);
-
-//     auto showResults = new Text("... Sukses ...", 70);
-//     showResults->setOrigin(Origin::Center);
-//     showResults->setPosition(renderer->getSize().x / 2, renderer->getPosition().y + 120);
-//     renderer->add(showResults);
-// }
-
 void processKeyPress()
 {
     // std::cout << "Key pressed!" << std::endl;
@@ -193,16 +182,12 @@ int main(int argc, char **argv)
                 cancelLanguage->setVisibility(Visibility::Hidden);
                 // processingLanguage->setVisibility(Visibility::Visible, true);
 
-                const fs::path sourcePath = "romfs:/0100BFE00E9CA000";
-                const fs::path destinationPath = "/atmosphere/contents/0100BFE00E9CA000";
-
                 // sprite->setVisibility(Visibility::Hidden);
 
                 copyDirectory(sourcePath, destinationPath);
 
                 // processingLanguage->setVisibility(Visibility::Hidden, true);
                 successText->setVisibility(Visibility::Visible, true);
-                // showResults();
             }
         }
             // isKeyPressed = false;
