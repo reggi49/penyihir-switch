@@ -7,5 +7,9 @@
   cmake -G "Unix Makefiles" -DPLATFORM_SWITCH=ON -DCMAKE_BUILD_TYPE=Release ../
   make -j4 penyihir.nro
   ```
+
+### Video Example
+[![Youtube Video](https://img.youtube.com/vi/0KzisNmLRuU/0.jpg)](https://www.youtube.com/watch?v=0KzisNmLRuU)
+
 <a name="next"></a>
 ### What to do next ?
