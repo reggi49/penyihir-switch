@@ -12,8 +12,9 @@
 [![Youtube Video](https://img.youtube.com/vi/0KzisNmLRuU/0.jpg)](https://www.youtube.com/watch?v=0KzisNmLRuU)
 
 ### Troubleshooting
-Jika Instalasi Berhasil Tetapi Bahasa belum berubah.
-![Image Install](https://i.pinimg.com/750x/90/3d/5d/903d5d00449187fbbbd785b6fdc32869.jpg)
+Jika Instalasi Berhasil Tetapi Bahasa Belum Berubah (If Installation Is Successful But The Language Has Not Changed)
+![Image Install](https://drive.google.com/file/d/1-GO8UKdQaElH_cfj0NYX3qV-pqJF5YOM/view?usp=sharing)
+
 
 <a name="next"></a>
 ### What to do next ?
