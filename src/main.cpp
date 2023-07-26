@@ -32,6 +32,17 @@ IntRect getTextureRect(Texture *texture, int direction)
     return rect;
 }
 
+// void showResults()
+// {
+//     auto *renderer = new C2DRenderer();
+//     renderer->setClearColor(Color::Transparent);
+
+//     auto showResults = new Text("... Sukses ...", 70);
+//     showResults->setOrigin(Origin::Center);
+//     showResults->setPosition(renderer->getSize().x / 2, renderer->getPosition().y + 120);
+//     renderer->add(showResults);
+// }
+
 void processKeyPress()
 {
     // std::cout << "Key pressed!" << std::endl;
@@ -117,7 +128,7 @@ int main(int argc, char **argv)
     // sprite->setVisibility(Visibility::Visible);
     // renderer->add(sprite);
 
-    auto changeLanguage = new Text("Press (A) to Change The Language", 50);
+    auto changeLanguage = new Text("Press (A / USA) OR (Y / EUROPE) OR (X / JAPAN) to Change The Language", 50);
     changeLanguage->setOrigin(Origin::Center);
     changeLanguage->setFillColor(Color::Red);
     changeLanguage->setOutlineColor(Color::White);
@@ -182,12 +193,52 @@ int main(int argc, char **argv)
                 cancelLanguage->setVisibility(Visibility::Hidden);
                 // processingLanguage->setVisibility(Visibility::Visible, true);
 
+                const fs::path sourcePath = "romfs:/subindo";
+                const fs::path destinationPath = "/atmosphere/contents/0100BFE00E9CA000";
+
                 // sprite->setVisibility(Visibility::Hidden);
 
                 copyDirectory(sourcePath, destinationPath);
 
                 // processingLanguage->setVisibility(Visibility::Hidden, true);
                 successText->setVisibility(Visibility::Visible, true);
+                // showResults();
+            }
+            if (keys & Input::Button::Y)
+            {
+                processKeyPress();
+                changeLanguage->setVisibility(Visibility::Hidden);
+                cancelLanguage->setVisibility(Visibility::Hidden);
+                // processingLanguage->setVisibility(Visibility::Visible, true);
+
+                const fs::path sourcePath = "romfs:/subindo";
+                const fs::path destinationPath = "/atmosphere/contents/01003D100E9C6000";
+
+                // sprite->setVisibility(Visibility::Hidden);
+
+                copyDirectory(sourcePath, destinationPath);
+
+                // processingLanguage->setVisibility(Visibility::Hidden, true);
+                successText->setVisibility(Visibility::Visible, true);
+                // showResults();
+            }
+            if (keys & Input::Button::X)
+            {
+                processKeyPress();
+                changeLanguage->setVisibility(Visibility::Hidden);
+                cancelLanguage->setVisibility(Visibility::Hidden);
+                // processingLanguage->setVisibility(Visibility::Visible, true);
+
+                const fs::path sourcePath = "romfs:/subindo";
+                const fs::path destinationPath = "/atmosphere/contents/01009EB00EBAA000";
+
+                // sprite->setVisibility(Visibility::Hidden);
+
+                copyDirectory(sourcePath, destinationPath);
+
+                // processingLanguage->setVisibility(Visibility::Hidden, true);
+                successText->setVisibility(Visibility::Visible, true);
+                // showResults();
             }
         }
             // isKeyPressed = false;
