@@ -32,8 +32,21 @@ IntRect getTextureRect(Texture *texture, int direction)
     return rect;
 }
 
+// void showResults()
+// {
+//     auto *renderer = new C2DRenderer();
+//     renderer->setClearColor(Color::Transparent);
+
+//     auto showResults = new Text("... Sukses ...", 70);
+//     showResults->setOrigin(Origin::Center);
+//     showResults->setPosition(renderer->getSize().x / 2, renderer->getPosition().y + 120);
+//     renderer->add(showResults);
+// }
+
 void processKeyPress()
 {
+    // std::cout << "Key pressed!" << std::endl;
+    // printf("Key pressed!");
     isKeyPressed = true;
 }
 
@@ -55,6 +68,16 @@ void copyFile(const fs::path &sourcePath, const fs::path &destinationPath)
 
 void copyDirectory(const fs::path &sourcePath, const fs::path &destinationPath)
 {
+    // if (fs::exists(destinationPath))
+    // {
+    //     fs::remove_all(destinationPath);
+    //     // std::cout << "Folder deleted successfully." << std::endl;
+    // }
+    // else
+    // {
+    //     fs::create_directories(destinationPath);
+    // }
+
     fs::create_directories(destinationPath);
 
     for (const auto &entry : fs::directory_iterator(sourcePath))
@@ -81,6 +104,12 @@ int main(int argc, char **argv)
     // create the main renderer
     auto *renderer = new C2DRenderer();
     renderer->setClearColor(Color::Black);
+
+    // create a background and add it to the main renderer
+    // auto bg = new Background({renderer->getSize().x / 2, renderer->getSize().y,
+    //                           renderer->getSize().x * (20 * m_scaling.x), renderer->getSize().y * (10 * m_scaling.y)});
+    // bg->setOrigin(Origin::Bottom);
+    // gameView->add(bg);
  
     // bg with texture
     auto *texture = new C2DTexture(renderer->getIo()->getRomFsPath() + "bg.jpeg");
@@ -88,6 +117,16 @@ int main(int argc, char **argv)
     texture->setPosition(renderer->getSize().x / 2, renderer->getSize().y / 2);
     texture->setSize(renderer->getSize().x, renderer->getSize().y);
     renderer->add(texture);
+
+    // create a buttons texture for the sprite
+    // auto buttons = new C2DTexture(renderer->getIo()->getRomFsPath() + "buttons.png");
+
+    // create a sprite
+    // auto sprite = new Sprite(buttons, getTextureRect(buttons, 0));
+    // sprite->setOrigin(Origin::Center);
+    // sprite->setPosition(renderer->getSize().x / 2, renderer->getSize().y / 2);
+    // sprite->setVisibility(Visibility::Visible);
+    // renderer->add(sprite);
 
     auto changeLanguage = new Text("Press (A / USA) OR (Y / EUROPE) OR (X / JAPAN) to Change The Language", 50);
     changeLanguage->setOrigin(Origin::Center);
@@ -154,6 +193,11 @@ int main(int argc, char **argv)
                 cancelLanguage->setVisibility(Visibility::Hidden);
                 // processingLanguage->setVisibility(Visibility::Visible, true);
 
+                const fs::path sourcePath = "romfs:/subindo";
+                const fs::path destinationPath = "/atmosphere/contents/0100BFE00E9CA000";
+
+                // sprite->setVisibility(Visibility::Hidden);
+
                 copyDirectory(sourcePath, destinationPath);
 
                 // processingLanguage->setVisibility(Visibility::Hidden, true);
@@ -166,6 +210,11 @@ int main(int argc, char **argv)
                 changeLanguage->setVisibility(Visibility::Hidden);
                 cancelLanguage->setVisibility(Visibility::Hidden);
                 // processingLanguage->setVisibility(Visibility::Visible, true);
+
+                const fs::path sourcePath = "romfs:/subindo";
+                const fs::path destinationPath = "/atmosphere/contents/01003D100E9C6000";
+
+                // sprite->setVisibility(Visibility::Hidden);
 
                 copyDirectory(sourcePath, destinationPath);
 
@@ -180,6 +229,11 @@ int main(int argc, char **argv)
                 cancelLanguage->setVisibility(Visibility::Hidden);
                 // processingLanguage->setVisibility(Visibility::Visible, true);
 
+                const fs::path sourcePath = "romfs:/subindo";
+                const fs::path destinationPath = "/atmosphere/contents/01009EB00EBAA000";
+
+                // sprite->setVisibility(Visibility::Hidden);
+
                 copyDirectory(sourcePath, destinationPath);
 
                 // processingLanguage->setVisibility(Visibility::Hidden, true);
@@ -187,6 +241,8 @@ int main(int argc, char **argv)
                 // showResults();
             }
         }
+            // isKeyPressed = false;
+
             snprintf(fps, 65, "FPS: %.2g/60\nFreeze means patching is in progress : %f",
                      renderer->getFps(),
                      renderer->getDeltaTime()
